@@ -11,15 +11,15 @@
 <div class="main_container">
 	<div class="menu">
 		<ul>
-			<li><a href="/category/?all-users">Все пользователи</a></li>
-			<li><a href="/category/?new-user">Добавить нового сотрудника</a></li>
-			<li><a href="/category/?departments">Отделы</a></li>
+			<li><a href="/all_users/">Все пользователи</a></li>
+			<li><a href="/new_user/">Добавить нового сотрудника</a></li>
+			<li><a href="/departments/">Отделы</a></li>
 		</ul>
 	</div>
 
 
 	<?php
-	// подключение нужной страницы
+	include ($contentPage);
 	?>
 
 </div>
