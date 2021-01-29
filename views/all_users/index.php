@@ -1,1 +1,26 @@
-<?php
+<table>
+	<thead>
+	<tr>
+		<th>Пользователь</th>
+		<th>Отдел</th>
+	</tr>
+	</thead>
+	<tbody>
+	<tr>
+		<td>Gitsome</td>
+		<td>Some one</td>
+	</tr>
+	<tr>
+		<td>Linkage</td>
+		<td>Fordor</td>
+	</tr>
+	<tr>
+		<td>Hicura</td>
+		<td>Warecom</td>
+	</tr>
+	<tr>
+		<td>Lavistaro</td>
+		<td>Micanorta</td>
+	</tr>
+	</tbody>
+</table>
