@@ -64,6 +64,8 @@ class router
 				foreach ($_GET as $key => $value) {
 					$args [$key] = $value;
 				}
+			}else {
+				$args =$lastParts;
 			}
 			$action = 'index';
 		} else {

@@ -31,7 +31,7 @@
 	<p>
 		<label for="password">Название отдела</label>
 		<br/>
-		<input type="text" name="add"/>
+		<input type="text" name="add" required/>
 	</p>
 	<p>
 		<button type="submit">

@@ -1,38 +1,45 @@
 
 <form>
         <p>
-            <label for="password">email</label>
+            <label>email</label>
             <br/>
-            <input type="text" name="email"/>
+            <input type="text" name="email" required/>
         </p>
         <p>
-            <label for="password">Имя пользователя</label>
+            <label>Имя пользователя</label>
             <br/>
-            <input type="text" name="user_name"/>
+            <input type="text" name="name" required/>
         </p>
         <p>
-            <label for="password">Адрес пользователя</label>
+            <label>Адрес пользователя</label>
             <br/>
-            <input type="text" name="user_address"/>
+            <input type="text" name="address"/>
         </p>
         <p>
-            <label for="password">Телефон</label>
+            <label>Телефон</label>
             <br/>
             <input type="text" name="phone"/>
         </p>
         <p>
-            <label for="password">Комментарии</label>
+            <label>Комментарии</label>
             <br/>
             <input type="text" name="comments"/>
         </p>
         <p>
-            <label for="password">Отдел</label>
+            <label>Отдел</label>
             <br/>
-            <select>
-                <option value="Отдел 1">Отдел 1</option>
-                <option value="Отдел 2">Отдел 2</option>
-                <option value="Отдел 3">Отдел 3</option>
-                <option value="Отдел 4">Отдел 4</option>
+            <select name="department">
+                <? foreach ($result as $departments) {
+				foreach ($departments as $key => $value) {
+				if ($key === 'department' ){
+				?>
+                <option value = "<?=$value;?>" > <?=$value;?> </option >
+                <?
+			}else
+			    continue;
+
+			}
+		}?>
             </select>
         </p>
         <p>
