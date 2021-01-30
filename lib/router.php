@@ -3,17 +3,25 @@
 
 class router
 {
-	private $path;
+	private $controllerPath;
+	private $viewsPath;
 	private $args = array();
 
 
-	function setPath($path) {
-		$path = rtrim($path, '/\\');
-		$path .= DS;
-		if (is_dir($path) == false) {
-			throw new Exception ('Invalid controller path: `' . $path . '`');
+	function setPath($controllerPath, $viewsPath) {
+		$controllerPath = rtrim($controllerPath, '/\\');
+		$controllerPath .= DS;
+		if (is_dir($controllerPath) == false) {
+			throw new Exception ('Invalid controller path: `' . $controllerPath . '`');
 		}
-		$this->path = $path;
+		$this->controllerPath = $controllerPath;
+
+		$viewsPath = rtrim($viewsPath, '/\\');
+		$viewsPath .= DS;
+		if (is_dir($viewsPath) == false) {
+			throw new Exception ('Invalid controller path: `' . $viewsPath . '`');
+		}
+		$this->viewsPath = $viewsPath;
 	}
 
 
@@ -29,7 +37,7 @@ class router
 		$parts = explode('/', $route);
 
 
-		$cmd_path = $this->path;
+		$cmd_path = $this->controllerPath;
 		foreach ($parts as $part) {
 			$fullpath = $cmd_path . 'controller_' . $part;
 
@@ -50,13 +58,16 @@ class router
 			$controller = 'Controller_All_Users';
 		}
 
-		$action = array_shift($parts);
-		if (empty($action)) {
+		$lastParts = array_shift($parts);
+		if (is_readable($this->viewsPath . $lastParts . 'index.php') == false) {
+			$args = $lastParts;
 			$action = 'index';
+		} else {
+			$action = $lastParts;
 		}
 
+
 		$file = $cmd_path . $controller . '.php';
-		$args = $parts;
 	}
 
 	function start() {
@@ -74,6 +85,6 @@ class router
 			die ('404 Not Found');
 		}
 
-		$controller->$action();
+		$controller->$action($args);
 	}
 }

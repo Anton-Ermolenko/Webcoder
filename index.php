@@ -13,6 +13,6 @@ include (SITE_PATH . DS . 'lib' . DS . 'core.php');
 
 $router = new Router();
 
-$router->setPath (SITE_PATH . 'controllers');
+$router->setPath (SITE_PATH . 'controllers', SITE_PATH . 'views');
 
 $router->start();

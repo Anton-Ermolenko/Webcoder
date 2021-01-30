@@ -3,20 +3,16 @@
 
 Abstract Class Model_Base
 {
-	public function __construct($select = false) {
+	public function __construct($tableName) {
 
 		global $dbObject;
 		$this->db = $dbObject;
 
 
-		$modelName = get_class($this);
-		$tableName = strtolower(str_replace('Model_', '',$modelName));
 		$this->table = $tableName;
 
 
 	}
-
-
 
 	protected function _getResult($sql){
 		try{

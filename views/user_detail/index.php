@@ -1,3 +1,36 @@
+<?php
+
+foreach (array_shift($result) as $key => $value){
+	switch ($key){
+		case "email":
+			$email = $value;
+			break;
+
+		case "name":
+			$name = $value;
+			break;
+
+		case "address":
+			$address = $value;
+			break;
+
+		case "phone":
+			$phone = $value;
+			break;
+
+		case "comments":
+			$comments = $value;
+			break;
+
+		case "department":
+			$department = $value;
+			break;
+
+		default:
+			break;
+	}
+    }
+?>
 <table>
 	<thead>
 	<tr>
@@ -11,12 +44,13 @@
 	</thead>
 	<tbody>
 	<tr>
-		<td>Gitsome</td>
-		<td>Some one</td>
-		<td>Take mose</td>
-		<td>Likbes</td>
-		<td>Racounter</td>
-		<td>Racounter</td>
+		<td><?=$email?></td>
+		<td><?=$name?></td>
+		<td><?=$address?></td>
+		<td><?=$phone?></td>
+		<td><?=$comments?></td>
+		<td><?=$department?></td>
+
 	</tr>
 
 	</tbody>
