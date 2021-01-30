@@ -8,4 +8,4 @@ define ('SITE_PATH', $sitePath); // путь к корневой папке са
 define('DB_USER', 'root');
 define('DB_PASS', 'root');
 define('DB_HOST', 'localhost');
-define('DB_NAME', 'blog_mvc');
+define('DB_NAME', 'webcoder');

@@ -4,7 +4,7 @@ spl_autoload_register(function ($className) {
 	$filename = strtolower($className) . '.php';
 
 	$expArr = explode('_', $className);
-	if(empty($expArr[1]) OR $expArr[1] == 'Base'){
+	if(empty($expArr[1]) || $expArr[1] == 'Base'){
 		$folder = 'lib';
 	}else{
 		switch(strtolower($expArr[0])){

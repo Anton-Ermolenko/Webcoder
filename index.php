@@ -10,9 +10,9 @@ $dbObject->exec('SET CHARACTER SET utf8');
 
 include (SITE_PATH . DS . 'lib' . DS . 'core.php');
 
-// Загружаем router
+
 $router = new Router();
-// задаем путь до папки контроллеров.
+
 $router->setPath (SITE_PATH . 'controllers');
-// запускаем маршрутизатор
+
 $router->start();

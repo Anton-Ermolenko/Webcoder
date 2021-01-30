@@ -13,7 +13,7 @@ class template
 		$this->controller = strtolower(str_replace('Controller_', '', $controllerName));
 	}
 
-	// установка переменных, для отображения
+
 	function vars($varname, $value) {
 		if (isset($this->vars[$varname]) == true) {
 			trigger_error ('Unable to set var `' . $varname . '`. Already set, and overwrite not allowed.', E_USER_NOTICE);

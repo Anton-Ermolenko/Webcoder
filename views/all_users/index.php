@@ -1,26 +1,39 @@
+
 <table>
-	<thead>
-	<tr>
-		<th>Пользователь</th>
-		<th>Отдел</th>
-	</tr>
-	</thead>
-	<tbody>
-	<tr>
-		<td>Gitsome</td>
-		<td>Some one</td>
-	</tr>
-	<tr>
-		<td>Linkage</td>
-		<td>Fordor</td>
-	</tr>
-	<tr>
-		<td>Hicura</td>
-		<td>Warecom</td>
-	</tr>
-	<tr>
-		<td>Lavistaro</td>
-		<td>Micanorta</td>
-	</tr>
+    <thead>
+    <tr>
+        <th>Пользователь</th>
+        <th>Отдел</th>
+    </tr>
+    </thead>
+    <tbody>
+<?php
+foreach ($result as $user) {
+    ?> <tr> <?
+        foreach ($user as $key => $value) {
+            switch ($key){
+                case "name":
+                    $name = $value;
+                    break;
+
+                case "department":
+                    $department = $value;
+                    break;
+
+				case "id":
+					$id = $value;
+					break;
+
+                default:
+                    break;
+			}
+		}
+	?>
+        <td><a href="/user_detail/<?=$id;?>"> <?=$name?></a></td>
+        <td><?=$department?></td>
+    </tr>
+    <?
+}
+?>
 	</tbody>
 </table>

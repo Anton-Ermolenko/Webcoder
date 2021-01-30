@@ -36,3 +36,5 @@
 		</button>
 	</p>
 </form>
+
+CREATE TABLE users ( id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, email VARCHAR(50) NOT NULL UNIQUE, name VARCHAR(255) , address VARCHAR(255), phone VARCHAR(255), comments VARCHAR(255), department VARCHAR(255) )
