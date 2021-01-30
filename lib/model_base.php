@@ -28,4 +28,43 @@ Abstract Class Model_Base
 		return $rows;
 	}
 
+	public function deleteBy($sql){
+		try {
+			$db = $this->db;
+			$result = $db->exec($sql);
+		}catch(PDOException $e){
+			echo 'Error : '.$e->getMessage();
+			echo '<br/>Error sql :  '. $sql ;
+			exit();
+		}
+		return $result;
+	}
+
+	public function set($table, $arraySetFields) {
+		$arrayAllFields = array_keys($this->fieldsTable());
+		$arrayData = array();
+		foreach($arrayAllFields as $field){
+			if (isset($arraySetFields[$field])){
+				$arrayData[] = $arraySetFields[$field];
+			} else {
+				$arrayData[] = 'NULL';
+			}
+		}
+		$forQueryFields =  implode(', ', $arrayAllFields);
+		$forQueryPlace = implode(', ', $arrayData);
+
+		try {
+			$db = $this->db;
+			$stmt = $db->prepare("INSERT INTO $table ($forQueryFields) values ($forQueryPlace)");
+			$result = $stmt->execute($arrayData);
+		}catch(PDOException $e){
+			echo 'Error : '.$e->getMessage();
+			echo '<br/>Error sql : ' . "'INSERT INTO $table ($forQueryFields) values ($forQueryPlace)'";
+			exit();
+		}
+
+		return $result;
+	}
+
+
 }

@@ -60,7 +60,11 @@ class router
 
 		$lastParts = array_shift($parts);
 		if (is_readable($this->viewsPath . $lastParts . 'index.php') == false) {
-			$args = $lastParts;
+			if (count($_GET) > 0){
+				foreach ($_GET as $key => $value) {
+					$args [$key] = $value;
+				}
+			}
 			$action = 'index';
 		} else {
 			$action = $lastParts;

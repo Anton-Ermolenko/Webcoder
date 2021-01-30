@@ -8,4 +8,12 @@ class Model_All_Users Extends Model_Base
 		$this->_getResult($sql);
 		return $this->dataResult;
 	}
+
+	public function deleteUserByDepartment ($department) {
+
+		$sql = "DELETE FROM $this->table WHERE department = '$department'";
+		$this->deleteBy($sql);
+		return $this->dataResult;
+	}
+
 }
